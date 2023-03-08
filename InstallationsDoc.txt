@@ -1,0 +1,186 @@
+----------------Group Project Assignment-----------
+--install node.js 14 version
+--install angular cli 15 version
+--set path="node.js path"
+--npm install -tslib
+--npm install --save @types/aos
+
+command to run Front-end code>> ng serve
+
+>>npm install mongoose
+>>npm install mongodb
+--install mongodb---set path
+>>npm install -g nodemon --save-dev
+
+command to run back-end code>> npm start nodemon 
+
+npm install -g npm-install-peers
+npm install --save-dev --ignore-scripts install-peers
+
+
+
+---------Individual assignment-1 notes------------
+--Installed Python 3.11.1 version
+--Installed PIP using CURL command
+>>curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+>>py get-pip.py
+--Installed FLASK 
+>> py -m pip install flask
+--Installed PYMONGO
+>>py -m pip install pymongo
+>>py -m pip install flask_pymongo
+
+----------connection string-------
+>>Local -- mongodb://localhost:27017
+>>cloud -- mongodb+srv://scott:<password>@cluster0.hlrnkae.mongodb.net/test
+
+---sample data----
+{
+    "id": 98765432,
+"title": "I am strange2",
+"clips_count": 22,
+"description": "jksdfhbcb",
+"episodes_count": 22,
+"genres":["ho","ho"],
+"score": 10,
+"seasons_count": 22,
+"company": "my com",
+"released_at":"home",
+"rating": "2345"
+    }
+
+
+-----------------BACKUP---------------------
+
+from flask import Flask, Response, request, render_template, jsonify,make_response
+import pymongo
+import json
+from bson.objectid import ObjectId
+from flask_pymongo import PyMongo
+
+app=Flask(__name__)
+
+try:
+    client = pymongo.MongoClient("mongodb+srv://scott:tiger@cluster0.hlrnkae.mongodb.net/?retryWrites=true&w=majority")
+    db = client.DB
+    '''
+    mongo = pymongo.MongoClient(
+        host = 'localhost',
+        port = 27017,
+        serverSelectionTimeoutMS = 1000
+    )
+    db = mongo.EarPhoneDatabase #connect to mongodb1
+    mongo.server_info() #trigger exception if cannot connect to db
+    '''
+except:
+    print("Error -connect to db")
+'''class Hulu(db.Document.Hulu):
+   id = db.Hulu.insert_one
+   title = db.StringField()
+   clips_count=db.IntField()
+   description=db.StringField()
+   episodes_count=db.IntField()
+   genres=db.StringField()
+   score=db.DoubleField()
+   seasons_count=db.IntField()
+   company=db.StringField()
+   released_at=db.DateField()
+   rating=db.StringField()
+   def to_json(self):
+    return{
+      "id":self.id,
+      "title":self.title,
+      "clips_count":self.clips_count,
+      "description":self.description,
+      "episodes_count":self.episodes_count,
+      "genres":self.genres,
+      "score":self.score,
+      "seasons_count":self.seasons_count,
+      "company":self.company,
+      "released_at":self.released_at,
+      "rating":self.rating
+      }'''
+#app.config['MONGO_URI']="mongodb://localhost:27017/Hulu" 
+#mongo=PyMongo(app)
+
+@app.route('/api', methods=['GET'])
+def searchall():
+  try:
+    documents = db.Hulu.find()
+    output = [{item: data[item] for item in data if item != '_id'} for data in documents]
+    return jsonify(output)
+  except Exception as ex:
+    response = Response("Search Records Error!!",status=500,mimetype='application/json')
+    return response
+
+@app.route('/api/<title>', methods=['GET'])
+def search_with_title(title):
+  try:
+    documents=db.Hulu.find({'title': title})
+    output = [{item: data[item] for item in data if item != '_id'} for data in documents]
+    return jsonify(output)
+  except Exception as ex:
+    response = Response("Search Records Error!!",status=500,mimetype='application/json')
+    return response
+
+
+@app.route('/api', methods=['POST'])
+def add_record():
+  _json=request.json
+  _id=_json['id']
+  _title=_json['title']
+  _clips_count=_json['clips_count']
+  _description=_json['description']
+  _episodes_count=_json['episodes_count']
+  _genres=_json['genres']
+  _score=_json['score']
+  _seasons_count=_json['seasons_count']
+  _company=_json['company']
+  _released_at=_json['released_at']
+  _rating=_json['rating']
+
+  if request.method == "POST":
+    id = db.Hulu.insert_one({'id': _id,'title': _title,'clips_count': _clips_count,'description': _description,'episodes_count': _episodes_count,
+    'genres': _genres,'score': _score,'seasons_count': _seasons_count,'company': _company,'released_at': _released_at,'rating': _rating})
+    #response=jsonify("Record with title '"+_title+"' inserted successfully")
+    response=jsonify(_json)
+    response.status_code= 200
+    return response
+
+@app.route('/api/<title>',methods=['PATCH'])
+def update_record(title):
+    _title = title
+    _json = request.json
+    _id = _json['id']
+    _title = _json['title']
+    _description = _json['description']
+    _score = _json['score']
+    _rating = _json['rating']
+    if request.method == "PATCH":
+        documents=db.Hulu.find({'title': title})
+        output = [{item: data[item] for item in data if item != '_id'} for data in documents]
+        if(output):
+          document=db.Hulu.update_one( { 'title': title },{'$set':{'id':_id,'title':_title,'description':_description,'score':_score,'rating':_rating}})
+          resp = jsonify(" Record with title '"+title+"' updated successfully")
+          resp.status_code = 200
+        else:
+          resp=jsonify("There is no record with title '"+title+"'. 0 records updated")
+        
+        return resp
+
+@app.route('/api/<title>', methods=['DELETE'])
+def delete_record(title):
+  try:
+    document=db.Hulu.find_one({'title': title})
+    db.Hulu.delete_many({'title': title})
+    #response=jsonify(str(document["id"])+"Deleted record with title "+title+" successfully")
+    response=jsonify("Deleted record with title '"+title+"' successfully")
+    return response
+  except Exception as ex:
+    response = Response("Delete Records Error!!",status=500,mimetype='application/json')
+    return response
+   
+
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
