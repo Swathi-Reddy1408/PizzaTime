@@ -1,6 +1,6 @@
 
 ```
-$ git https://github.com/shekhutsav1962001/OnlinePizzaOrderingSystemAngular.git
+$ git https://github.com/Swathi-Reddy1408/PizzaTime.git
 $ cd OnlinePizzaOrderingSystemAngular
 $ npm install
 $ ng serve 
