@@ -25,9 +25,7 @@ The purpose of a database in the context of our online pizza ordering web applic
 
 
 ## User Profiles
-There are two types of Users in this application.
-Users
-Admin
+There are two types of Users in this application. 1. Users and 2. Admin
 
 ## Information and Functionalities of Users
 
