@@ -218,7 +218,21 @@ Admin
 
 - **Edit Pizza without Image**  
   **Method**: `GET`  
-  **Endpoint**: `/editpizzawithoutimage`  
+  **Endpoint**: `/editpizzawithoutimage`
+
+## Few Application Screenshots
+![image](https://github.com/user-attachments/assets/6d9c515b-77ea-4406-bda8-016a1c39fd1d)
+![image](https://github.com/user-attachments/assets/72eee2a1-26d8-4a5a-83f5-9c9460e96d52)
+![image](https://github.com/user-attachments/assets/95f035a2-0e51-45e3-be91-95c9313f778e)
+![image](https://github.com/user-attachments/assets/5383f577-c632-4f6f-a619-eb5490efb38c)
+![image](https://github.com/user-attachments/assets/7735c822-44f4-445c-be95-85b9006fd950)
+![image](https://github.com/user-attachments/assets/a3458069-05b8-4ad8-bdab-2cf8abc7bce2)
+![image](https://github.com/user-attachments/assets/4f71e5c5-f6ab-427e-9b89-df0bed3c4956)
+![image](https://github.com/user-attachments/assets/b36b6b5d-2c09-40ff-8098-0294ba105f9b)
+
+
+
+
 
 
 
