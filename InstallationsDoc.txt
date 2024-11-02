@@ -1,4 +1,4 @@
-----------------Group Project Assignment-----------
+
 --install node.js 14 version
 --install angular cli 15 version
 --set path="node.js path"
