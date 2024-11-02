@@ -4,9 +4,10 @@
 The Online Pizza Delivery Web Application provides a seamless platform for users to order pizza online. This application features a diverse user interface and stores various user-related data in a database. The process includes pizza selection, simulated payment, and real-time delivery status updates.
 
 ## Technologies Used
-- **Frontend**: [Angular 15]
-- **Backend**: [Node.js 14]
-- **Database**: [MongoDB]
+- **Frontend**: Angular 15
+- **Backend**: Node.js 14
+- **Database**: MongoDB
+  For detailed installation instructions, check out the [Installation Guide](InstallationsDoc.txt).
 
 
 ## Purpose of Database
