@@ -7,7 +7,7 @@ The Online Pizza Delivery Web Application provides a seamless platform for users
 - **Frontend**: Angular 15
 - **Backend**: Node.js 14
 - **Database**: MongoDB
-  For detailed installation instructions, check out the [Installation Guide](InstallationsDoc.txt).
+For detailed installation instructions, check out the [Installation Guide](InstallationsDoc.txt).
 
 
 ## Purpose of Database
