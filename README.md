@@ -10,12 +10,6 @@ The Online Pizza Delivery Web Application provides a seamless platform for users
   
 ## Installation Instructions
 For detailed installation instructions, check out the [Installation Guide](InstallationsDoc.txt)
-```
-$ git https://github.com/Swathi-Reddy1408/PizzaTime.git
-$ cd OnlinePizzaOrderingSystemAngular
-$ npm install
-$ ng serve 
-```
 
 ## Purpose of Database
 The purpose of a database in the context of our online pizza ordering web application is to efficiently and securely manage and store various types of data associated with users, orders, and the overall system. This includes customer details, order information, transaction history, and delivery status. The database serves as a central repository for data, facilitating seamless interactions, order tracking, and ensuring a smooth user experience. It is essential for data integrity, accessibility, and effective management of information, contributing to the overall functionality and success of an application.
