@@ -213,8 +213,6 @@ There are two types of Users in this application. 1. Users and 2. Admin
   **Endpoint**: `/editpizzawithoutimage`
 
 ## Few Application Screenshots
-![image](https://github.com/user-attachments/assets/6d9c515b-77ea-4406-bda8-016a1c39fd1d)
-![image](https://github.com/user-attachments/assets/72eee2a1-26d8-4a5a-83f5-9c9460e96d52)
 ![image](https://github.com/user-attachments/assets/95f035a2-0e51-45e3-be91-95c9313f778e)
 ![image](https://github.com/user-attachments/assets/5383f577-c632-4f6f-a619-eb5490efb38c)
 ![image](https://github.com/user-attachments/assets/7735c822-44f4-445c-be95-85b9006fd950)
